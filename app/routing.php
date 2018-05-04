@@ -21,7 +21,7 @@ $routes = [
     ['edit', '/beasts/{id:\d+}/edit', ['GET', 'POST']], // action, url, method
   ],
   'Planet' => [ // Controller
-    ['list', '/planets', 'GET'], // action, url, method
+    ['listPlanet', '/planets', 'GET'], // action, url, method
   ],
   'Movie' => [ // Controller
     ['list', '/movies', 'GET'], // action, url, method
