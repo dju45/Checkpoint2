@@ -44,4 +44,20 @@ class BeastManager extends AbstractManager
 
     }
 
+    public function addBeast(array $data)
+    {
+
+        $query = "INSERT INTO $this->table (name, picture, size, area, id_movie, id_planet) VALUES (:name, :picture, :size, :area, :movies, :planet)";
+        $statement = $this->pdoConnection->prepare($query);
+        $statement->bindValue('name', $data['name']);
+        $statement->bindValue('picture', $data['picture']);
+        $statement->bindValue('size', (int)$data['size']);
+        $statement->bindValue('area', $data['area']);
+        $statement->bindValue('movies', (int)$data['movie']);
+        $statement->bindValue('planet', (int)$data['planet']);
+
+        $statement->execute();
+
+    }
+
 }

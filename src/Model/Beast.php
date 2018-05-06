@@ -17,24 +17,116 @@ class Beast
     /**
      * @var int
      */
-    private $id_planet;
+   private $id;
+
+    /**
+     * @var string
+     */
+   private $name;
+
+    /**
+     * @var string
+     */
+   private $picture;
+
+    /**
+     * @var int
+     */
+   private $size;
+
+    /**
+     * @var string
+     */
+   private $area;
+
+    /**
+     * @var int
+     */
+   private $id_movie;
+
+    /**
+     * @var int
+     */
+   private $id_planet;
 
     /**
      * @return int
      */
-    public function getIdPlanet(): int
+    public function getId(): int
     {
-        return $this->id_planet;
+        return $this->id;
     }
 
     /**
-     * @param int $id_planet
-     * @return Beast
+     * @param int $id
      */
-    public function setIdPlanet(int $id_planet): Beast
+    public function setId(int $id): void
     {
-        $this->id_planet = $id_planet;
-        return $this;
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPicture(): string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param string $picture
+     */
+    public function setPicture(string $picture): void
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSize(): int
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param int $size
+     */
+    public function setSize(int $size): void
+    {
+        $this->size = $size;
+    }
+
+    /**
+     * @return string
+     */
+    public function getArea(): string
+    {
+        return $this->area;
+    }
+
+    /**
+     * @param string $area
+     */
+    public function setArea(string $area): void
+    {
+        $this->area = $area;
     }
 
     /**
@@ -47,60 +139,27 @@ class Beast
 
     /**
      * @param int $id_movie
-     * @return Beast
      */
-    public function setIdMovie(int $id_movie): Beast
+    public function setIdMovie(int $id_movie): void
     {
         $this->id_movie = $id_movie;
-        return $this;
     }
-
-    /**
-     * @var int
-     */
-    private $id_movie;
-    /**
-     * @var int
-     */
-    private $id;
-
-    /**
-     * @var string
-     */
-    private $name;
 
     /**
      * @return int
      */
-    public function getId(): int
+    public function getIdPlanet(): int
     {
-        return $this->id;
+        return $this->id_planet;
     }
 
     /**
-     * @param mixed $id
-     * @return Beast
+     * @param int $id_planet
      */
-    public function setId($id): Beast
+    public function setIdPlanet(int $id_planet): void
     {
-        $this->id = $id;
-
-        return $this;
+        $this->id_planet = $id_planet;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
 }

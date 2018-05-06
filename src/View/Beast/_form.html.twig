@@ -1,7 +1,7 @@
-<form method="post">
+<form method="POST" action="/beasts/add">
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="title">Name :</label>
+            <label for="name">Name :</label>
             <input type="text" class="form-control" name="name">
         </div>
         <div class="form-group col-md-6">
@@ -11,7 +11,7 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="area">Picture :</label>
+            <label for="picture">Picture :</label>
             <input type="url" class="form-control" name="picture" id="picture"/>
         </div>
         <div class="form-group col-md-6">
@@ -29,8 +29,8 @@
             </select>
         </div>
         <div class="form-group col-md-6">
-            <label for="movies">Movie :</label>
-            <select name="movies[]" class="custom-select" id="movies" multiple>
+            <label for="movie">Movie :</label>
+            <select name="movie" class="custom-select" id="movie">
                 {% for movie in movies %}
                     <option value="{{ movie.id }}">{{ movie.title }}</option>
                 {% endfor %}

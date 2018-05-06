@@ -58,14 +58,20 @@ class BeastController extends AbstractController
   public function add()
   {
 
-    $planetManager = new PlanetManager();
-    $planets = $planetManager->selectAll();
-    $movieManager = new MovieManager();
-    $movies = $movieManager->selectAll();
 
+        $beastManager = new BeastManager();
+        $planetManager = new PlanetManager();
+        $planets = $planetManager->selectAll();
+        $movieManager = new MovieManager();
+        $movies = $movieManager->selectAll();
+        if (!empty($_POST)) {
+            $data = $_POST;
+            $beastManager->addBeast($data);
+        }
 
     return $this->twig->render('Beast/add.html.twig',['planets' => $planets, 'movies' => $movies]);
   }
+
   /**
   * Display item creation page
   *

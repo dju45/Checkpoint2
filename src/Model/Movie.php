@@ -26,11 +26,15 @@ class Movie
     {
         $this->title = $title;
     }
+
     /**
      * @var int
      */
     private $id;
 
+    /**
+     * @var string
+     */
     private $title;
 
     /**
