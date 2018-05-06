@@ -11,22 +11,44 @@ namespace Model;
 
 class Movie
 {
-    private $name;
-
     /**
      * @return mixed
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $title
      */
-    public function setName($name): void
+    public function setTitle($title): void
     {
-        $this->name = $name;
+        $this->title = $title;
     }
+    /**
+     * @var int
+     */
+    private $id;
+
+    private $title;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+
 
 }

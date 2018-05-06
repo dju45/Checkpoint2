@@ -42,10 +42,12 @@ class BeastController extends AbstractController
   {
     $beatManager = new BeastManager();
     $beat = $beatManager->selectOneById($id);
+    $movie =$beatManager->selectMovieById($id);
+    $movie =$movie['title'];
+    $planet = $beatManager->selectPlanetById($id);
+    $planet = $planet ['name'];
 
-
-
-    return $this->twig->render('Beast/details.html.twig', ['beat' => $beat]);
+    return $this->twig->render('Beast/details.html.twig', ['beat' => $beat, 'movie' => $movie, 'planet' => $planet]);
   }
 
   /**

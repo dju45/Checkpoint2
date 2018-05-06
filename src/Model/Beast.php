@@ -14,8 +14,59 @@ namespace Model;
  */
 class Beast
 {
+    /**
+     * @var int
+     */
+    private $id_planet;
+
+    /**
+     * @return int
+     */
+    public function getIdPlanet(): int
+    {
+        return $this->id_planet;
+    }
+
+    /**
+     * @param int $id_planet
+     * @return Beast
+     */
+    public function setIdPlanet(int $id_planet): Beast
+    {
+        $this->id_planet = $id_planet;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdMovie(): int
+    {
+        return $this->id_movie;
+    }
+
+    /**
+     * @param int $id_movie
+     * @return Beast
+     */
+    public function setIdMovie(int $id_movie): Beast
+    {
+        $this->id_movie = $id_movie;
+        return $this;
+    }
+
+    /**
+     * @var int
+     */
+    private $id_movie;
+    /**
+     * @var int
+     */
     private $id;
 
+    /**
+     * @var string
+     */
     private $name;
 
     /**
