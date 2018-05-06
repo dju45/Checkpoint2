@@ -18,7 +18,8 @@ $routes = [
     ['list', '/beasts', 'GET'], // action, url, method
     ['details', '/beasts/{id:\d+}', 'GET'], // action, url, method
     ['add', '/beasts/add', ['GET', 'POST']], // action, url, method
-    ['edit', '/beasts/{id:\d+}/edit', ['GET', 'POST']], // action, url, method
+    ['edit', '/beasts/{id:\d+}/edit', ['GET', 'POST']],// action, url, method
+    ['delete', '/delete/{id:\d+}', ['GET', 'POST']],
   ],
   'Planet' => [ // Controller
     ['listPlanet', '/planets', 'GET'], // action, url, method

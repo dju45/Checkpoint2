@@ -91,8 +91,19 @@ class BeastController extends AbstractController
           $data = $_POST;
           $beastManager->editBeast($id, $data);
           header('Location: /beasts');
+          exit();
       }
 
     return $this->twig->render('Beast/edit.html.twig',['planets' => $planets, 'movies' => $movies, 'beast' => $beast]);
+  }
+
+  public function delete (int $id)
+  {
+      $beastManager = new BeastManager();
+      $beastManager->delete($id);
+      header('Location: /beasts');
+      exit();
+
+
   }
 }

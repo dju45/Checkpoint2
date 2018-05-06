@@ -79,5 +79,11 @@ class BeastManager extends AbstractManager
         $statement->execute();
     }
 
-
+    public function delete(int $id)
+    {
+        $query = "DELETE FROM $this->table WHERE id = :id";
+        $statement = $this->pdoConnection->prepare($query);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
 }
