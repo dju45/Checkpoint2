@@ -60,4 +60,24 @@ class BeastManager extends AbstractManager
 
     }
 
+    /**
+     * @param int $id
+     * @param array $data
+     */
+    public function editBeast(int $id, array $data)
+    {
+        $query = "UPDATE $this->table SET name = :name, picture = :picture, size = :size, area = :area, id_movie = :idMovie, id_planet = :idPlanet WHERE id = :id";
+        $statement = $this->pdoConnection->prepare($query);
+        $statement->bindValue('id', $id);
+        $statement->bindValue('name', $data['name']);
+        $statement->bindValue('picture', $data['picture']);
+        $statement->bindValue('size', (int)$data['size']);
+        $statement->bindValue('area', $data['area']);
+        $statement->bindValue('idMovie', (int)$data['movie']);
+        $statement->bindValue('idPlanet', (int)$data['planet']);
+
+        $statement->execute();
+    }
+
+
 }

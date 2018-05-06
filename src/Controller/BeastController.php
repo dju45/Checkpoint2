@@ -77,9 +77,22 @@ class BeastController extends AbstractController
   *
   * @return string
   */
-  public function edit()
+  public function edit($id)
   {
-    // TODO : An edition page where your can add a new beast.
-    return $this->twig->render('Beast/edit.html.twig');
+
+      $beastManager = new BeastManager();
+      $beast = $beastManager->selectOneById($id);
+      $planetManager = new PlanetManager();
+      $planets = $planetManager->selectAll();
+      $movieManager = new MovieManager();
+      $movies = $movieManager->selectAll();
+
+      if (!empty($_POST)) {
+          $data = $_POST;
+          $beastManager->editBeast($id, $data);
+          header('Location: /beasts');
+      }
+
+    return $this->twig->render('Beast/edit.html.twig',['planets' => $planets, 'movies' => $movies, 'beast' => $beast]);
   }
 }
