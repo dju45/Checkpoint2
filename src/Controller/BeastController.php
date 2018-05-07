@@ -10,6 +10,8 @@
 namespace Controller;
 
 use Model\BeastManager;
+use Model\MovieManager;
+use Model\PlanetManager;
 
 /**
 * Class ItemController
@@ -38,9 +40,14 @@ class BeastController extends AbstractController
   */
   public function details(int $id)
   {
-    // TODO : A page which displays all details of a specific beasts.
+    $beatManager = new BeastManager();
+    $beat = $beatManager->selectOneById($id);
+    $movie =$beatManager->selectMovieById($id);
+    $movie =$movie['title'];
+    $planet = $beatManager->selectPlanetById($id);
+    $planet = $planet ['name'];
 
-    return $this->twig->render('Beast/details.html.twig');
+    return $this->twig->render('Beast/details.html.twig', ['beat' => $beat, 'movie' => $movie, 'planet' => $planet]);
   }
 
   /**
@@ -50,18 +57,53 @@ class BeastController extends AbstractController
   */
   public function add()
   {
-    // TODO : A creation page where your can add a new beast.
 
-    return $this->twig->render('Beast/add.html.twig');
+
+        $beastManager = new BeastManager();
+        $planetManager = new PlanetManager();
+        $planets = $planetManager->selectAll();
+        $movieManager = new MovieManager();
+        $movies = $movieManager->selectAll();
+        if (!empty($_POST)) {
+            $data = $_POST;
+            $beastManager->addBeast($data);
+        }
+
+    return $this->twig->render('Beast/add.html.twig',['planets' => $planets, 'movies' => $movies]);
   }
+
   /**
   * Display item creation page
   *
   * @return string
   */
-  public function edit()
+  public function edit($id)
   {
-    // TODO : An edition page where your can add a new beast.
-    return $this->twig->render('Beast/edit.html.twig');
+
+      $beastManager = new BeastManager();
+      $beast = $beastManager->selectOneById($id);
+      $planetManager = new PlanetManager();
+      $planets = $planetManager->selectAll();
+      $movieManager = new MovieManager();
+      $movies = $movieManager->selectAll();
+
+      if (!empty($_POST)) {
+          $data = $_POST;
+          $beastManager->editBeast($id, $data);
+          header('Location: /beasts');
+          exit();
+      }
+
+    return $this->twig->render('Beast/edit.html.twig',['planets' => $planets, 'movies' => $movies, 'beast' => $beast]);
+  }
+
+  public function delete (int $id)
+  {
+      $beastManager = new BeastManager();
+      $beastManager->delete($id);
+      header('Location: /beasts');
+      exit();
+
+
   }
 }

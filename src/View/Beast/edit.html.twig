@@ -5,13 +5,57 @@
   <h1 class="col-12">Edit beast informations</h1>
 </div>
 <div class="row">
-  <form class="col-12" method="post">
+  <form class="col-12" method="post" action ="/delete/{{ beast.id }}">
     <input type="submit" name="delete" value="delete" class="float-right danger">
   </form>
 </div>
 <div class="row">
   <div class="col-12">
-    {% include 'Beast/_form.html.twig' %}
+    <form method="POST" action="/beasts/{{ beast.id }}/edit">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name">Name :</label>
+          <input type="text" class="form-control" name="name" value = {{ beast.name }}>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="area">Area :</label>
+          <input type="text" class="form-control" name="area" value ={{ beast.area }}>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="picture">Picture :</label>
+          <input type="url" class="form-control" name="picture" id="picture" value="{{ beast.picture }}"/>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="size">Size (in meter):</label>
+          <input type="text" class="form-control" name="size" id="size" value="{{ beast.size }}"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="planet">Planet :</label>
+          <select name="planet" class="custom-select" id="planet" >
+              {% for planet in planets %}
+                <option value="{{ planet.id }}">{{ planet.name }}</option>
+              {% endfor %}
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="movie">Movie :</label>
+          <select name="movie" class="custom-select" id="movie">
+              {% for movie in movies %}
+                <option value="{{ movie.id }}">{{ movie.title }}</option>
+              {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <input type="submit" value="Valider" class="float-right">
+        </div>
+      </div>
+    </form>
   </div>
 </div>
 <div class="row">

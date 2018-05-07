@@ -14,9 +14,40 @@ namespace Model;
  */
 class Beast
 {
-    private $id;
+    /**
+     * @var int
+     */
+   private $id;
 
-    private $name;
+    /**
+     * @var string
+     */
+   private $name;
+
+    /**
+     * @var string
+     */
+   private $picture;
+
+    /**
+     * @var int
+     */
+   private $size;
+
+    /**
+     * @var string
+     */
+   private $area;
+
+    /**
+     * @var int
+     */
+   private $id_movie;
+
+    /**
+     * @var int
+     */
+   private $id_planet;
 
     /**
      * @return int
@@ -27,29 +58,108 @@ class Beast
     }
 
     /**
-     * @param mixed $id
-     * @return Beast
+     * @param int $id
      */
-    public function setId($id): Beast
+    public function setId(int $id): void
     {
         $this->id = $id;
-
-        return $this;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
+
+    /**
+     * @return string
+     */
+    public function getPicture(): string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param string $picture
+     */
+    public function setPicture(string $picture): void
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSize(): int
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param int $size
+     */
+    public function setSize(int $size): void
+    {
+        $this->size = $size;
+    }
+
+    /**
+     * @return string
+     */
+    public function getArea(): string
+    {
+        return $this->area;
+    }
+
+    /**
+     * @param string $area
+     */
+    public function setArea(string $area): void
+    {
+        $this->area = $area;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdMovie(): int
+    {
+        return $this->id_movie;
+    }
+
+    /**
+     * @param int $id_movie
+     */
+    public function setIdMovie(int $id_movie): void
+    {
+        $this->id_movie = $id_movie;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdPlanet(): int
+    {
+        return $this->id_planet;
+    }
+
+    /**
+     * @param int $id_planet
+     */
+    public function setIdPlanet(int $id_planet): void
+    {
+        $this->id_planet = $id_planet;
+    }
+
+
 }

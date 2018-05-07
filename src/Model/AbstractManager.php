@@ -63,4 +63,6 @@ abstract class AbstractManager
 
         return $statement->fetch();
     }
+
+
 }
